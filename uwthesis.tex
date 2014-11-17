@@ -1,0 +1,899 @@
+%  ========================================================================
+%  Copyright (c) 1985-2014 The University of Washington
+%
+%  Licensed under the Apache License, Version 2.0 (the "License");
+%  you may not use this file except in compliance with the License.
+%  You may obtain a copy of the License at
+%
+%      http://www.apache.org/licenses/LICENSE-2.0
+%
+%  Unless required by applicable law or agreed to in writing, software
+%  distributed under the License is distributed on an "AS IS" BASIS,
+%  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+%  See the License for the specific language governing permissions and
+%  limitations under the License.
+%  ========================================================================
+%
+
+% Documentation for University of Washington thesis LaTeX document class
+% by Jim Fox
+% fox@washington.edu
+%
+%    Revised for version 2014/11/13 of uwthesis.cls
+%
+%    This document is contained in a single file ONLY because
+%    I wanted to be able to distribute it easily.  A real thesis ought
+%    to be contained on many files (e.g., one for each chapter, at least).
+%
+%    To help you identify the files and sections in this large file
+%    I use the string '==========' to identify new files.
+%
+%    To help you ignore the unusual things I do with this sample document
+%    I try to use the notation
+%       
+%    % --- sample stuff only -----
+%    special stuff for my document, but you don't need it in your thesis
+%    % --- end-of-sample-stuff ---
+
+
+%    Printed in twoside style now that that's allowed
+%
+ 
+\documentclass [11pt, proquest] {uwthesis}[2014/11/13]
+ 
+%
+% The following line would print the thesis in a postscript font 
+
+% \usepackage{natbib}
+% \def\bibpreamble{\protect\addcontentsline{toc}{chapter}{Bibliography}}
+
+\setcounter{tocdepth}{1}  % Print the chapter and sections to the toc
+ 
+
+% ==========   Local defs and mods
+%
+
+% --- sample stuff only -----
+% These format the sample code in this document
+
+\usepackage{alltt}  % 
+\newenvironment{demo}
+  {\begin{alltt}\leftskip3em
+     \def\\{\ttfamily\char`\\}%
+     \def\{{\ttfamily\char`\{}%
+     \def\}{\ttfamily\char`\}}}
+  {\end{alltt}}
+ 
+% metafont font.  If logo not available, use the second form
+%
+% \font\mffont=logosl10 scaled\magstep1
+\let\mffont=\sf
+% --- end-of-sample-stuff ---
+ 
+
+
+
+\begin{document}
+ 
+% ==========   Preliminary pages
+%
+% ( revised 2012 for electronic submission )
+%
+
+\prelimpages
+ 
+%
+% ----- copyright and title pages
+%
+\Title{The Suitability of the \LaTeX\ Text Formatter\\
+  for Thesis Preparation by Technical and\\
+  Non-technical Degree Candidates}
+\Author{Jim Fox}
+\Year{1985-2014}
+\Program{UW Information Technology}
+
+\Chair{Name of Chairperson}{Title of Chair}{Department of Chair}
+\Signature{First committee member}
+\Signature{Next committee member}
+\Signature{etc}
+
+\copyrightpage
+
+% \titlepage  
+
+% --- sample stuff only -----
+% unusual footnote not found in a real thesis
+% You just use the \titlepage as commented out above
+
+{\Degreetext{A dissertation%
+  \footnote[2]{an egocentric imitation, actually}\\
+  submitted in partial fulfillment of the\\ requirements for the degree of}
+ \def\thefootnote{\fnsymbol{footnote}}
+ \let\footnoterule\relax
+ \titlepage
+ }
+\setcounter{footnote}{0}
+
+% --- end-of-sample-stuff ---
+ 
+%
+% ----- signature and quoteslip are gone
+%
+
+%
+% ----- abstract
+%
+
+
+\setcounter{page}{-1}
+\abstract{%
+This sample dissertation is an aid to students who are attempting
+to format their theses with \LaTeX, a sophisticated
+text formatter widely used by mathematicians and scientists everywhere.
+ 
+\begin{itemize}
+\item It describes the use of a specialized
+macro package developed specifically for thesis production
+at the University.
+The macros customize \LaTeX\ for the correct thesis style,
+allowing the student to concentrate on the substance of
+his or her text.%
+\footnote{See Appendix A to obtain the source to this
+ thesis and the class file.}
+\item It demonstrates the solutions to a variety of
+formatting challenges found in thesis production.
+\item It serves as a template for a real dissertation.
+\end{itemize}
+}
+ 
+%
+% ----- contents & etc.
+%
+\tableofcontents
+\listoffigures
+%\listoftables  % I have no tables
+ 
+%
+% ----- glossary 
+%
+\chapter*{Glossary}      % starred form omits the `chapter x'
+\addcontentsline{toc}{chapter}{Glossary}
+\thispagestyle{plain}
+%
+\begin{glossary}
+\item[argument] replacement text which customizes a \LaTeX\ macro for
+each particular usage.
+\item[back-up] a copy of a file to be used when catastrophe strikes
+the original.  People who make no back-ups deserve
+no sympathy.
+\item[control sequence] the normal form of a command to \LaTeX.
+\item[delimiter] something, often a character, that indicates
+the beginning and ending of an argument.
+More generally, a delimiter is a field separator.
+\item[document class] a file of macros that tailors \LaTeX\ for
+a particular document.  The macros described by this thesis
+constitute a document class.
+\item[document option] a macro or file of macros
+that further modifies \LaTeX\ for
+a particular document.  The option {\tt[chapternotes]}
+constitutes a document option.
+\item[figure] illustrated material, including graphs,
+diagrams, drawings and photographs.
+\item[font] a character set (the alphabet plus digits
+and special symbols) of a particular size and style.  A couple of fonts
+used in this thesis are twelve point roman and {\sl twelve point roman
+slanted}.
+\item[footnote] a note placed at the bottom of a page, end of a chapter,
+or end of a thesis that comments on or cites a reference
+for a designated part of the text.
+\item[formatter] (as opposed to a word-processor) arranges printed
+material according to instructions embedded in the text.
+A word-processor, on the other hand, is normally controlled
+by keyboard strokes that move text about on a display.
+\item[\LaTeX] simply the ultimate in computerized typesetting.
+\item[macro]  a complex control sequence composed of 
+other control sequences.
+\item[pica] an archaic unit of length.  One pica is twelve points and
+six picas is about an inch.
+\item[point] a unit of length.  72.27 points equals one inch.
+\item[roman]  a conventional printing typestyle using serifs.
+the decorations on the ends of letter strokes.
+This thesis is set in roman type.
+\item[rule] a straight printed line; e.g., \hrulefill.
+\item[serif] the decoration at the ends of letter strokes.
+\item[table] information placed in a columnar arrangement.
+\item[thesis] either a master's thesis or a doctoral dissertation.
+This document also refers to itself as a thesis, although it
+really is not one.
+ 
+\end{glossary}
+ 
+%
+% ----- acknowledgments
+%
+\acknowledgments{% \vskip2pc
+  % {\narrower\noindent
+  The author wishes to express sincere appreciation to
+  University of Washington, where he has had the opportunity
+  to work with the \TeX\ formatting system,
+  and to the author of \TeX, Donald Knuth, {\it il miglior fabbro}.
+  % \par}
+}
+
+%
+% ----- dedication
+%
+\dedication{\begin{center}to my dear wife, Joanna\end{center}}
+
+%
+% end of the preliminary pages
+ 
+ 
+ 
+%
+% ==========      Text pages
+%
+
+\textpages
+ 
+% ========== Chapter 1
+ 
+\chapter {Introduction}
+ 
+The utility of a clean, professionally prepared thesis is well
+documented%
+\footnote{See, for example,
+  W.~Shakespeare\cite{Hamlet} for a recent discussion.}
+and, even if you never intend to actually print your thesis,
+you still ought to format it as if that were your intention.
+ 
+\TeX\ facilitates that. It is a flexible,
+complete and professional typesetting system.
+It will produce {\bf pdf} output as required by the Graduate School.
+
+\section{The Purpose of This Sample Thesis}
+ 
+This sample is both a demonstration of the quality and
+propriety of a \LaTeX formatted thesis and  
+documentation for its preparation.
+It has made extensive use of a custom class file
+developed specifically for this purpose
+at the University of Washington.  Chapter~II discusses
+\TeX\ and \LaTeX.
+Chapter III describes the additional macros and functions
+provided by the custom thesis class file.  Finally, Chapter IV hopes to tie things up.
+ 
+It is 
+impossible to predict all the formatting problems one will encounter
+and there will be problems that are best handled
+by a specialist.  
+The Graduate School may be able to help you find help.
+Some departments may also be able to provide \LaTeX\ assistance.
+ 
+ 
+\section{Conventions and Notations}
+ 
+In this thesis the typist
+refers to the user of \LaTeX---the one who
+makes formatting decisions and chooses the appropriate
+formatting commands.
+He or she will most often be the degree candidate.
+ 
+This document deals with \LaTeX\ typesetting commands and their
+functions.  Wherever possible the conventions used to display
+text entered by the typist and the resulting formatted output
+are the same as those used by the \TeX books.
+Therefore, {\tt typewriter type} is used to indicate text
+as typed by the computer
+or entered by the typist.
+It is quite the opposite of {\it italics,} which indicates
+a category rather than exact text.  For example,
+{\tt alpha} and {\tt beta} might each be an example of a {\it label}.
+ 
+ 
+\section{Nota bene}
+ 
+This sample thesis was produced by the \LaTeX\ document class it describes
+and its format is consonant with the Graduate School's electronic dissertation guidelines,
+as of November, 2014, at least.
+However, use of this package does not guarantee acceptability
+of a particular thesis.
+ 
+ 
+% ========== Chapter 2
+ 
+\chapter{A Brief \\ Description of \protect\TeX}
+ 
+The \TeX\ formatting program is the creation of
+Donald Knuth of Stanford University.
+It has been implemented on nearly every general purpose computer and
+produces exactly the same copy on all machines.
+ 
+\section{What is it; why is it spelled that way; 
+and what do
+really long section titles look like in the text and in the
+Table of Contents?}
+ 
+\TeX\ is a formatter.  A document's format is controlled
+by commands embedded in the text.  
+\LaTeX\ is a special version of \TeX---preloaded
+with a voluminous set of macros that simplify most
+formatting tasks.
+ 
+\TeX\ uses {\it control sequences} to control
+the formatting of a document.  These control sequences are usually
+words or groups of letters prefaced with the backslash character
+({\tt\char'134}).
+For example,
+Figure \ref{start-2} shows the text that printed the beginning
+of this chapter.  Note the control sequence \verb"\chapter" that
+instructed \TeX\ to start a new chapter, print the title, and
+make an entry in the table of contents.  It is an example
+of a macro defined by the \LaTeX\ macro package.
+The control sequence \verb"\TeX", which prints the word \TeX,
+is a standard macro from the {\it\TeX book}.
+The short control sequence \verb"\\" in the title instructed \TeX\ to
+break the title line at that point.
+This capability is an example of an extension to \LaTeX\
+provided by the uwthesis document class.
+ 
+\begin{figure}
+\begin{demo}
+\singlespace
+\\chapter\{A Brief\\\\Description of \\TeX\}
+
+The \\TeX\\ formatting program is the creation of
+Donald Knuth of Stanford University.
+\end{demo}
+\label{start-2}
+\caption{The beginning of the Chapter II text}
+\end{figure}
+ 
+Most of the time \TeX\ is simply building paragraphs from
+text in your source files.  No control sequences are involved.
+New paragraphs are indicated by a blank line in the
+input file.
+Hyphenation is performed automatically.
+ 
+\section{\TeX books}
+ 
+The primary reference for \LaTeX\ is Lamport's second edition
+of the \textit{\LaTeX\ User's Guide}\cite{Lbook}.
+It is easily read and should be sufficient for thesis formatting.
+See also the \textsl{\LaTeX\ Companion}\cite{companion} for descriptions
+of many add-on macro packages.
+
+Although unnecessary for thesis writers, the \textsl{\TeX book}
+is the primary reference for \TeX sperts worldwide.
+ 
+\section{Mathematics}
+ 
+The thesis class does not expand on \TeX's
+or \LaTeX's
+comprehensive treatment of mathematical equation printing.%
+\label{c2note}\footnote{%
+% a long footnote indeed.
+ Although many \TeX-formatted documents contain no
+ mathematics except the page numbers, it seems appropriate
+ that this paper, which is in some sense about \TeX,
+ ought to demonstrate an equation or two.  Here then, is a statement 
+ of the {\it Nonsense Theorem}.
+ 
+ \smallskip
+ \def\RR{{\cal R\kern-.15em R}}
+ {\narrower\hangindent\parindent Assume a universe $E$ and a symmetric function
+  $\$$ defined on $E$, such that for each $\$^{yy}$ there exists a
+  $\$^{\overline{yy}}$, where $\$^{yy} = \$^{\overline{yy}}$.
+  For each element $i$ of $E$ define
+  ${\cal S}(i)=\sum_i \$^{yy}+\$^{\overline{yy}}+0$.
+  Then if $\RR$ is that subset of $E$ where $1+1=3$,
+  for each $i$
+  $$\lim_{\$\to\infty}\int {\cal S}di =
+      \cases{0,&if $i\not\in\RR$;\cr
+             \infty,&if $i\in\RR$.\cr}$$
+  \par}} % end of the footnote
+%
+The {\it\TeX book}\cite{book}, {\it \LaTeX\ User's Guide}\cite{Lbook},
+and {\it The \LaTeX\ Companion}\cite{companion}
+thoroughly cover this topic.
+ 
+ 
+\section{Languages other than English}
+ 
+Most \LaTeX\ implementations at the University are tailored
+for the English language.  However, \LaTeX\ will format many
+other languages.  Unfortunately, this author has never been successful in 
+learning more than a smattering of anything other than English.
+Consult your department or the Tex Users Group.
+\smallskip
+\begin{center}
+{\tt http://tug.org/},
+\end{center}
+\smallskip
+for assistance with non-English formatting.
+
+Unusual characters can be defined via the
+font maker \hbox{\mffont METAFONT} (documented by Knuth\cite{Metafont}).
+The definitions are not trivial.
+Students who attempt to print a thesis with
+custom fonts may soon proclaim,
+ 
+% Note.  This is not the ideal way to print Greek
+\medskip
+\begin{center}
+``$\mathaccent"7027\alpha\pi o\kern1pt\theta\alpha\nu\epsilon\hat\iota\nu$
+\ $\theta\acute\epsilon\lambda\omega$.''
+ 
+\end{center}
+ 
+% ========== Chapter 3
+ 
+\chapter{The Thesis Unformatted}
+ 
+This chapter describes the uwthesis class (\texttt{uwthesis.cls},
+version dated 2014/11/13)
+in detail 
+and shows how it was used to format the thesis.
+A working knowledge of Lamport's \LaTeX\ manual\cite{Lbook} is assumed.
+ 
+\section{The Control File}
+ 
+The source to this sample thesis is a single file
+only because ease of distribution was a concern.
+You should not do this.  Your task will be much easier if you
+break your thesis into several files:  a file for the preliminary pages,
+a file for each chapter,  one for the glossary, and one for each
+appendix.  Then use a control file to tie them all together.
+This way you can edit and format parts of your thesis much more
+efficiently.
+ 
+Figure~\ref{control-file} shows a control file that
+might have produced this thesis.
+It sets the document style, with options and parameters,
+and formats the various parts of the thesis---%
+but contains no text of its own.
+ 
+ 
+%  control file caption and figure
+%
+%
+\begin{figure}[p]
+ \begin{fullpage}
+  \singlespace
+  \begin{verbatim}
+    % LaTeX thesis control file
+ 
+    \documentclass [11pt, proquest]{uwthesis}[2014/11/13]
+ 
+    \begin{document}
+ 
+    % preliminary pages
+    %
+    \prelimpages
+    \include{prelim}
+ 
+    % text pages
+    %
+    \textpages
+    \include{chap1}
+    \include{chap2}
+    \include{chap3}
+    \include{chap4}
+ 
+    % bibliography
+    %
+    \bibliographystyle{plain}
+    \bibliography{thesis}
+ 
+    % appendices
+    %
+    \appendix
+    \include{appxa}
+    \include{appxb}
+ 
+    \include{vita} 
+    \end{document}
+  \end{verbatim}
+  \caption[A thesis control file]%
+   {\narrower A thesis control file ({\tt thesis.tex}).
+   This file is the input to \LaTeX\ that will produce a
+   thesis.  It contains no text, only commands which
+   direct the formatting of the thesis.
+   }
+  \label{control-file}
+ \end{fullpage}
+\end{figure}
+ 
+The first section, from the \verb"\documentclass" to
+the \verb"\begin{document}", defines the document class and options.
+This sample thesis specifies the \texttt{proquest} style, which is now
+required by the Graduate School and is the default.  
+Two other, now dated, other styles are available:  \verb"twoside", which is similar but 
+produces a wider binding margin and is more suitable for paper printing; and
+\verb"oneside", which is really old fashoned.
+This sample also specified a font size
+of 11 points. 
+Possible font size options are: \verb"10pt", \verb"11pt", and \verb"12pt".
+Default is 12 points, which is the preference
+of the Graduate School. If you choose a smaller size be sure to
+check with the Graduate School for acceptability.  The smaller fonts
+can produce very small sub and superscripts.
+
+Include most additional formatting packages with \verb"\usepackage",
+as describe by Lamport\cite{Lbook}.  The one exception to this
+rule is the \verb"natbib" package.  Include it with the \verb"natbib"
+document option.
+ 
+Use the \verb"\includeonly" command to format only a part of your
+thesis.  See Lamport\cite[sec. 4.4]{Lbook} for usage and limitations.
+
+ 
+\section{The Text Pages}
+ 
+A chapter is a major division of the thesis.  Each chapter begins
+on a new page and has a Table of Contents entry.
+ 
+\subsection{Chapters, Sections, Subsections, and Appendices}
+ 
+ 
+Within the chapter title use a \verb"\\" control sequence to separate lines
+in the printed title (recall Figure \ref{start-2}.).
+The \verb"\\" does not affect the Table of Contents entry.
+ 
+Format appendices just like chapters.
+The control sequence \verb"\appendix" instructs \LaTeX\ to
+begin using the term `Appendix' rather than `Chapter'.
+ 
+ 
+Specify sections and subsections of a chapter 
+with  \verb"\section" and \verb"\subsection", respectively.
+In this thesis chapter and section
+titles are written to the table of contents.
+Consult Lamport\cite[pg. 176]{Lbook} to see which
+subdivisions of the thesis can be written to the table of contents.
+The \verb"\\" control sequence is not permitted in section and
+subsection titles.
+ 
+ 
+\subsection{Footnotes}
+ 
+\label{footnotes}
+ Footnotes format as described in the \LaTeX\ book.  You can also
+ ask for end-of-chapter or end-of-thesis notes.
+ The thesis class will automatically set these up if
+ you ask for the document class option \texttt{chapternotes}
+ or \texttt{endnotes}.  
+ 
+If selected, chapternotes will print automatically.  If you choose
+endnotes however you must explicitly indicate when to print the notes 
+with the command \verb"\printendnotes".  See the style guide for
+suitable endnote placement.  
+
+\subsection{Figures and Tables}
+Standard \LaTeX\ figures and tables, see Lamport\cite[sec.~C.9]{Lbook},
+normally provide the most convenient means to position the figure.
+Full page floats and facing captions are exceptions to this rule.
+
+If you want a figure or table to occupy a full page enclose the
+contents in a \texttt{fullpage} environment.  
+See figure~\ref{facing-caption}.
+
+\subsubsection{Facing pages}
+Facing page captions are an artifact of traditional, dead-tree printing,
+where a left-side (even) page faces a right-side (odd) page.
+
+In the \texttt{twoside} style, a facing caption
+is full page caption for a full page figure or table
+and should face the illustration to which it refers.
+You must explicitly format both pages. 
+The caption part appears on an even page
+(left side) and the figure or table
+comes on the following odd page (right side).
+Enclose the float contents for the caption 
+in a \texttt{leftfullpage} environment,
+and enclose the float contents for the figure or table 
+in a \texttt{fullpage} environment.
+The first page (left side) contains the caption. The second page
+(right side) could be left blank.  A picture or graph might be pasted onto
+this space. See figure~\ref{facing-caption}.
+
+
+\begin{figure}[t]
+\singlespace
+\begin{verbatim}
+     \begin{figure}[p]% the left side caption
+       \begin{leftfullpage}
+         \caption{ . . . }
+       \end{leftfullpage}
+     \end{figure}
+     \begin{figure}[p]% the right side space
+       \begin{fullpage}
+          . . .
+          ( note.. no caption here )
+       \end{fullpage}
+     \end{figure}
+\end{verbatim}
+\caption[Generating a facing caption page]{This text would create a
+  double page figure in the two-side styles. }
+\label{facing-caption}
+\end{figure}
+ 
+You can use these commands with the \texttt{proquest} style, but they have little
+effect on online viewing.
+ 
+ 
+\subsection{Horizontal Figures and Tables}
+Figures and tables may be formatted horizontally
+(a.k.a.\ landscape) as long as their captions appear
+horizontal also.  \LaTeX\ will format landscape material for you.
+
+Include the \texttt{rotating} package 
+\begin{demo}
+\\usepackage[figuresright]\{rotating\}
+\end{demo}
+and read the documentation that comes with the package. 
+
+Figure~\ref{sideways} is an example of how a landscape
+table might be formatted. 
+
+\begin{figure}[t]
+\singlespace
+\begin{verbatim}
+     \begin{sidewaystable}
+         ...
+         \caption{ . . . }
+     \end{sidewaystable}
+\end{verbatim}
+\caption[Generating a landscape table]{This text would create a
+  landscape table with caption.}
+\label{sideways}
+\end{figure}
+ 
+
+
+\subsection{Figure and Table Captions}
+Most captions are formatted with the \verb"\caption" macro as described 
+by Lamport\cite[sec. C.9]{Lbook}. 
+The uwthesis class extends this macro to allow
+continued figures and tables, and to provide multiple figures and
+tables with the same number, e.g., 3.1a, 3.1b, etc.
+ 
+To format the caption for the first part of
+a figure or table that cannot fit
+onto a single page use the standard form:
+\begin{demo}
+\\caption[\textit{toc}]\{\textit{text}\}
+\end{demo}
+To format the caption for the subsequent parts of 
+the figure or table 
+use this caption:
+\begin{demo}
+\\caption(-)\{(continued)\}
+\end{demo}
+It will keep the same number and the text of the caption will be 
+{\em(continued)}.
+
+To format the caption for the first part of
+a multi-part figure or table
+use the format:
+\begin{demo}
+\\caption(a)[\textit{toc}]\{\textit{text}\}
+\end{demo}
+The figure or table will be lettered (with `a') as well as numbered.
+To format the caption for the subsequent parts of 
+the multi-part figure or table
+use the format:
+\begin{demo}
+\\caption(\textit{x})\{\textit{text}\}
+\end{demo}
+where {\em x} is {\tt b}, {\tt c}, \ldots.
+The parts will be lettered (with `b', `c', \ldots).
+
+\subsection{Line spacing}
+
+Normally line spacing will come out like it should. However, the 
+ProQuest style allows single spacing in certain situations:
+figure content, some lists, and etc.
+Use \verb"\singlespace" to switch to single spacing within
+a \verb"\begin{}" and \verb"\end{}" block.
+The code examples in this document does this. 
+
+\section{The Preliminary Pages}
+ 
+These are easy to format only because they are relatively invariant
+among theses.  Therefore the difficulties have already been encountered
+and overcome by \LaTeX\ and the thesis document classes.
+
+Start with the definitions that describe your thesis.
+This sample thesis was printed with the parameters:
+
+\begin{demo}
+\\Title\{The Suitability of the \\LaTeX\\ Text Formatter\\\\
+   for Thesis Preparation by Technical and\\\\
+   Non-technical Degree Candidates\}
+\\Author\{Jim Fox\}
+\\Program\{UW Information Technology\}
+\\Year\{2012\}
+
+\\Chair\{Name of Chairperson\}\{title\}\{Chair's department\}
+\\Signature\{First committee member\}
+\\Signature\{Next committee member\}
+\\Signature\{etc\}
+
+\end{demo}
+ 
+Use two or more \verb"\Chair" lines if you have co-chairs.
+ 
+\subsection{Copyright page}
+Print the copyright page with \verb"\copyrightpage".
+
+\subsection{Title page}
+Print the title page with \verb"\titlepage".
+The title page of this thesis was printed with%
+\footnote{Actually, it wasn't.  I added a footnote---something you would not do.}
+ 
+\begin{demo}
+\\titlepage
+\end{demo}
+ 
+You may change default text on the title page with these
+macros.  You will have to redefine \verb"\Degreetext", for instance,
+if you're writing a Master's thesis instead of a dissertation.\footnote{If you use these they can
+be included with the other information before \\copyrightpage".}
+
+\begin{list}{}{\itemindent\parindent\itemsep0pt
+   \def\makelabel#1{\texttt{\char`\\#1}\hfill}\singlespace}
+\item[Degree\char`\{{\it degree name}\char`\}]
+   defaults to ``Doctor of Philosophy''
+\item[School\char`\{{\it school name}\char`\}] defaults to
+``University of Washington''
+\item[Degreetext\char`\{{\it degree text}\char`\}] defaults to
+``A dissertation submitted \ldots''
+\item[textofCommittee\char`\{{\it committee label}\char`\}] defaults to
+``Reading Committee:''
+\item[textofChair\char`\{{\it chair label}\char`\}] defaults to
+``Chair of the Supervisory Committee:''
+\end{list}
+
+These definitions must appear \underline{before} the \verb"\titlepage" command.
+
+ 
+\subsection{Abstract}
+Print the
+abstract with \verb"\abstract".
+It has one argument, which is the text of the abstract.
+All the names have already been defined.
+The abstract of this thesis was printed with
+ 
+\begin{demo}
+\\abstract\{This sample . . . `real' dissertation.\}
+\end{demo}
+ 
+ 
+\subsection{Tables of contents}
+Use the standard \LaTeX\ commands to format these items.
+ 
+ 
+\subsection{Acknowledgments}
+Use the \verb"\acknowledgments" macro to format the acknowledgments page.
+It has one argument, which is the text of the acknowledgment.
+The acknowledgments of this thesis was printed with
+ 
+\begin{demo}
+\\acknowledgments\{The author wishes . . . \{\\it il miglior fabbro\}.\\par\}\}
+\end{demo}
+ 
+ 
+\subsection{Dedication}
+Use the \verb"\dedication" macro to format the dedication page.
+It has one argument, which is the text of the dedication.
+ 
+\subsection{Vita}
+Use the \verb"\vita" macro to format the curriculum vitae.
+It has one argument, which chronicles your life's accomplishments.
+
+Note that the Vita is not really a preliminary page.
+It appears at the end of your thesis, just after the appendices.
+ 
+ 
+%%  
+%% \section{Customization of the Macros}
+%%  
+%% Simple customization, including 
+%% alteration of default parameters,  changes to dimensions,
+%% paragraph indentation, and margins, are not too difficult.
+%% You have the choice of modifying the class file ({\tt uwthesis.cls})
+%% or loading
+%% one or more personal style files to customize your thesis.
+%% The latter is usually most convenient, since you do not need
+%% to edit the large and complicated class file.
+%% 
+ 
+
+
+% ========== Chapter 4
+ 
+\chapter{Running \LaTeX\\
+  ({\it and printing if you must})}
+ 
+ 
+From a given source \TeX\ will produce exactly the same document
+on all computers and, if needed, on all printers.  {\it Exactly the same}
+means that the various spacings, line and page breaks, and
+even hyphenations will occur at the same places.
+
+How you edit your text files and run \LaTeX\ varies
+from system to system and depends on your personal preference.
+
+\section{Running}
+
+The author is woefully out of his depth where 
+\TeX\ on Windows is concerned.  Google would be his resource.
+On a linux system he types
+
+\begin{demo}
+\$\ pdflatex uwthesis
+\end{demo}
+
+and it generally works.
+
+ 
+\section{Printing}
+ 
+All implementations of \TeX\ provide the option of {\bf pdf} output,
+which is all the Graduate School requires.  Even if you intend to
+print a copy of your thesis create a 
+{\tt pdf}.  It will print most anywhere.
+
+\printendnotes
+
+%
+% ==========   Bibliography
+%
+\nocite{*}   % include everything in the uwthesis.bib file
+\bibliographystyle{plain}
+\bibliography{uwthesis}
+%
+% ==========   Appendices
+%
+\appendix
+\raggedbottom\sloppy
+ 
+% ========== Appendix A
+ 
+\chapter{Where to find the files}
+ 
+The uwthesis class file, {\tt uwthesis.cls}, contains the parameter settings,
+macro definitions, and other \TeX nical commands which
+allow \LaTeX\ to format a thesis.  
+The source to
+the document you are reading, {\tt uwthesis.tex},
+contains many formatting examples
+which you may find useful.
+The bibliography database, {\tt uwthesis.bib}, contains instructions
+to BibTeX to create and format the bibliography.
+You can find the latest of these files on:
+
+\begin{itemize}
+\item My page.
+\begin{description}
+\item[] \verb%http://staff.washington.edu/fox/tex/uwthesis.html%
+\end{description}
+
+\item CTAN
+\begin{description}
+\item[]  \verb%http://tug.ctan.org/tex-archive/macros/latex/contrib/uwthesis/%
+\item[]  (not always as up-to-date as my site)
+\end{description}
+
+\end{itemize}
+
+\vita{Jim Fox is a Software Engineer with UW Information Technology at the University of Washington.
+His duties do not include maintaining this package.  That is rather
+an avocation which he enjoys as time and circumstance allow.
+
+He welcomes your comments to {\tt fox@uw.edu}.
+}
+
+
+\end{document}
