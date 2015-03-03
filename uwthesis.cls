@@ -21,13 +21,19 @@
 %
 %    For the most recent edition of this class file see:
 %         http://staff.washington.edu/fox/tex/
+<<<<<<< HEAD
 %    or
 %         https://github.com/UWIT-IAM/UWThesis.git
+=======
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
 %
 %
 % Version history
 %
+<<<<<<< HEAD
 % 9.01,03/03/15, rename singlespace to uwsinglespace so no collision with setspace style
+=======
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
 % 9.00,11/13/14, modify for proquest style.  Adjust sample thesis appropriately
 % 8.04,03/06/14, return multi-page abstract to two sided
 % 8.03,06/19/12, fix textofChair for co-chairs
@@ -77,7 +83,11 @@
 % Documentation is in the companion document (uwthesis.tex)
 %
 
+<<<<<<< HEAD
 \ProvidesClass{uwthesis}[2015/03/03]
+=======
+\ProvidesClass{uwthesis}[2014/11/13]
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
 \NeedsTeXFormat{LaTeX2e}
  
 %
@@ -183,7 +193,11 @@
 \def\baselinestretch{1.5}    % not quite doublespaced
 
 % make it easier to switch to single-space lines in figures, tables, ...
+<<<<<<< HEAD
 \def\uwsinglespace{\def\baselinestretch{1.0}\normalfont}
+=======
+\def\singlespace{\def\baselinestretch{1.0}\normalfont}
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
 
 \setcounter{totalnumber}{5}
 \setcounter{topnumber}{5}
@@ -289,7 +303,11 @@
 \def\footnoterule{\kern-3\p@
  \hrule width \columnwidth \kern 2.6\p@}
 \long\def\@makefntext#1{\parindent 1em\noindent \hangindent\parindent
+<<<<<<< HEAD
  \uwsinglespace
+=======
+ \singlespace
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
  \hb@xt@1.8em{\hss\@makefnmark}#1}
  
 %
@@ -326,7 +344,11 @@
 \def\@makeparthead#1{ \vspace*{2pc} {\centering
  \ifnum \c@secnumdepth >\m@ne \large Part \thepart \par
  \vspace{10\p@} \fi 
+<<<<<<< HEAD
   \uwsinglespace
+=======
+  \singlespace
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
   \large\bf \uppercase\expandafter{#1}\par
  \nobreak \vspace{20\p@}} }
 %
@@ -372,7 +394,11 @@
 \def\@makechapterhead#1{ \vspace*{2pc} {\centering
  \ifnum \c@secnumdepth >\m@ne \large \@chapapp{} \Thechapter \par
  \vspace{10\p@} \fi 
+<<<<<<< HEAD
   \uwsinglespace
+=======
+  \singlespace
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
   \large\bf \uppercase\expandafter{#1}\par
  \nobreak \vspace{20\p@}} }
 %
@@ -670,13 +696,21 @@
     \cleardoublepage
     \vspace{7pc}
     \begin{center}
+<<<<<<< HEAD
       {\uwsinglespace\Large
+=======
+      {\singlespace\Large
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
       \lineskip 3ex
       \@Title\par}
       \par\vskip\z@ plus4fill\relax
       \@Author
       \par\vskip\z@ plus4fill\relax
+<<<<<<< HEAD
       {\uwsinglespace
+=======
+      {\singlespace
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
       \@Degreetext\par}
       \par\vskip\z@ plus2fill\relax
       \@Degree
@@ -700,7 +734,11 @@
         \advance\count1 by1}
 
       \par\vskip\z@ plus4fill\relax
+<<<<<<< HEAD
        {\uwsinglespace
+=======
+       {\singlespace
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
       \@Programtext \par \@Program\par}
       \par\vskip\z@ plus1fill\relax
     \end{center}
@@ -722,11 +760,19 @@
       \par\vskip1pc
       {\bf\@textofAbstract}%
       \par\vskip1pc
+<<<<<<< HEAD
       {\uwsinglespace \@Title \par}
       \par\vskip1pc
       \@Author
       \par\vskip1pc
        {\uwsinglespace
+=======
+      {\singlespace \@Title \par}
+      \par\vskip1pc
+      \@Author
+      \par\vskip1pc
+       {\singlespace
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
       \@textofChair
       \par 
       \count1=0
@@ -765,7 +811,11 @@
    \setcounter{page}{1}
    \hbox to\textwidth{\hfill Page}
    {\let\footnotemark\relax  % in case one is in the title
+<<<<<<< HEAD
     \uwsinglespace
+=======
+    \singlespace
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
    \@starttoc{toc}
     }
    }
@@ -779,7 +829,11 @@
    \addcontentsline{toc}{chapter}{\protect\@textofLoF}
    \hbox to\textwidth{Figure Number \hfill Page}
    {\let\footnotemark\relax  % in case one is in the title
+<<<<<<< HEAD
     \uwsinglespace
+=======
+    \singlespace
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
    \@starttoc{lof}
     }
    }
@@ -792,7 +846,11 @@
    \addcontentsline{toc}{chapter}{\protect\@textofLoT}
    \hbox to\textwidth{Table Number \hfill Page}
    {\let\footnotemark\relax  % in case one is in the title
+<<<<<<< HEAD
     \uwsinglespace
+=======
+    \singlespace
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
    \@starttoc{lot}
     }
    }
@@ -808,7 +866,11 @@
  \usecounter{enumi}}
  \def\newblock{\hskip .11em plus .33em minus .07em}
  \sloppy\clubpenalty4000\widowpenalty4000
+<<<<<<< HEAD
  \uwsinglespace
+=======
+ \singlespace
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
  \sfcode`\.=1000\relax}
  
 %
@@ -845,7 +907,11 @@
 %
 \renewenvironment{glossary}
   {\begin{list}{}{\setlength\itemindent{\parindent}
+<<<<<<< HEAD
    \def\makelabel##1{\footnotesize\uppercase{##1:}\hfill}\uwsinglespace}}
+=======
+   \def\makelabel##1{\footnotesize\uppercase{##1:}\hfill}\singlespace}}
+>>>>>>> 1e0e83c11704fe8ec026c0ec5e92f90a25e775fb
   {\end{list}}
 
 % End of the thesis style
