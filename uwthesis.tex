@@ -1,5 +1,5 @@
 %  ========================================================================
-%  Copyright (c) 1985-2014 The University of Washington
+%  Copyright (c) 1985 The University of Washington
 %
 %  Licensed under the Apache License, Version 2.0 (the "License");
 %  you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@
 % fox@washington.edu
 %
 %    Revised for version 2015/03/03 of uwthesis.cls
+%    Revised, 2016/11/22, for cleanup of sample copyright and title pages
 %
 %    This document is contained in a single file ONLY because
 %    I wanted to be able to distribute it easily.  A real thesis ought
@@ -39,7 +40,7 @@
 %    Printed in twoside style now that that's allowed
 %
  
-\documentclass [11pt, proquest] {uwthesis}[2015/03/03]
+\documentclass [11pt, proquest] {uwthesis}[2016/11/22]
  
 %
 % The following line would print the thesis in a postscript font 
@@ -89,8 +90,8 @@
   for Thesis Preparation by Technical and\\
   Non-technical Degree Candidates}
 \Author{Jim Fox}
-\Year{1985-2014}
-\Program{UW Information Technology}
+\Year{2016}
+\Program{IT Infrastructure}
 
 \Chair{Name of Chairperson}{Title of Chair}{Department of Chair}
 \Signature{First committee member}
@@ -99,22 +100,8 @@
 
 \copyrightpage
 
-% \titlepage  
+\titlepage  
 
-% --- sample stuff only -----
-% unusual footnote not found in a real thesis
-% You just use the \titlepage as commented out above
-
-{\Degreetext{A dissertation%
-  \footnote[2]{an egocentric imitation, actually}\\
-  submitted in partial fulfillment of the\\ requirements for the degree of}
- \def\thefootnote{\fnsymbol{footnote}}
- \let\footnoterule\relax
- \titlepage
- }
-\setcounter{footnote}{0}
-
-% --- end-of-sample-stuff ---
  
 %
 % ----- signature and quoteslip are gone
@@ -712,7 +699,7 @@ This sample thesis was printed with the parameters:
    for Thesis Preparation by Technical and\\\\
    Non-technical Degree Candidates\}
 \\Author\{Jim Fox\}
-\\Program\{UW Information Technology\}
+\\Program\{IT Infrastructure\}
 \\Year\{2012\}
 
 \\Chair\{Name of Chairperson\}\{title\}\{Chair's department\}
@@ -730,7 +717,6 @@ Print the copyright page with \verb"\copyrightpage".
 \subsection{Title page}
 Print the title page with \verb"\titlepage".
 The title page of this thesis was printed with%
-\footnote{Actually, it wasn't.  I added a footnote---something you would not do.}
  
 \begin{demo}
 \\titlepage
@@ -888,7 +874,7 @@ You can find the latest of these files on:
 
 \end{itemize}
 
-\vita{Jim Fox is a Software Engineer with UW Information Technology at the University of Washington.
+\vita{Jim Fox is a Software Engineer with IT Infrastructure Division at the University of Washington.
 His duties do not include maintaining this package.  That is rather
 an avocation which he enjoys as time and circumstance allow.
 
