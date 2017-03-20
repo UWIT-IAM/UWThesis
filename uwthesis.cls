@@ -27,6 +27,7 @@
 %
 % Version history
 %
+% 9.02,11/22/16, minor changes to style to more closely follow grad school guidelines ( something else )
 % 9.01,03/03/15, rename singlespace to uwsinglespace so no collision with setspace style
 % 9.00,11/13/14, modify for proquest style.  Adjust sample thesis appropriately
 % 8.04,03/06/14, return multi-page abstract to two sided
@@ -77,7 +78,7 @@
 % Documentation is in the companion document (uwthesis.tex)
 %
 
-\ProvidesClass{uwthesis}[2015/03/03]
+\ProvidesClass{uwthesis}[2016/11/22]
 \NeedsTeXFormat{LaTeX2e}
  
 %
