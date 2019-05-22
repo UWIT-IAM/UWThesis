@@ -291,6 +291,7 @@
  \hrule width \columnwidth \kern 2.6\p@}
 \long\def\@makefntext#1{\parindent 1em\noindent \hangindent\parindent
  \uwsinglespace
+ \everypar{\hb@xt@1em{\hss} \hangindent\parindent}
  \hb@xt@1.8em{\hss\@makefnmark}#1}
  
 %
