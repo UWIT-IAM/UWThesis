@@ -27,6 +27,7 @@
 %
 % Version history
 %
+% 9.03,05/21/19, use \everypar in \@makefntext
 % 9.02,11/22/16, minor changes to style to more closely follow grad school guidelines ( something else )
 % 9.01,03/03/15, rename singlespace to uwsinglespace so no collision with setspace style
 % 9.00,11/13/14, modify for proquest style.  Adjust sample thesis appropriately
