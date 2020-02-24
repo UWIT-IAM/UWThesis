@@ -19,6 +19,8 @@
 % by Jim Fox
 % fox@washington.edu
 %
+%    Revised 2020/02/24, added \caption()[]{} option.  No ToC.
+%
 %    Revised for version 2015/03/03 of uwthesis.cls
 %    Revised, 2016/11/22, for cleanup of sample copyright and title pages
 %
@@ -40,7 +42,7 @@
 %    Printed in twoside style now that that's allowed
 %
  
-\documentclass [11pt, proquest] {uwthesis}[2016/11/22]
+\documentclass [11pt, proquest] {uwthesis}[2020/02/24]
  
 %
 % The following line would print the thesis in a postscript font 
@@ -90,7 +92,7 @@
   for Thesis Preparation by Technical and\\
   Non-technical Degree Candidates}
 \Author{Jim Fox}
-\Year{2016}
+\Year{1995}
 \Program{IT Infrastructure}
 
 \Chair{Name of Chairperson}{Title of Chair}{Department of Chair}
@@ -675,6 +677,14 @@ use the format:
 \end{demo}
 where {\em x} is {\tt b}, {\tt c}, \ldots.
 The parts will be lettered (with `b', `c', \ldots).
+
+If you want a normal caption, but don't want a ToC entry:
+\begin{demo}
+\\caption()\{\textit{text}\}
+\end{demo}
+Note that the caption number will increment.  You would normally use this 
+only to leave an entire chapter's captions off the ToC.
+
 
 \subsection{Line spacing}
 

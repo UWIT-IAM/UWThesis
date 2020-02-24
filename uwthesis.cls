@@ -27,6 +27,7 @@
 %
 % Version history
 %
+% 9.04,02/24/20, added 'no ToC' option for caption:  \caption()[]{etc}
 % 9.03,05/21/19, use \everypar in \@makefntext
 % 9.02,11/22/16, minor changes to style to more closely follow grad school guidelines ( something else )
 % 9.01,03/03/15, rename singlespace to uwsinglespace so no collision with setspace style
@@ -79,7 +80,7 @@
 % Documentation is in the companion document (uwthesis.tex)
 %
 
-\ProvidesClass{uwthesis}[2016/11/22]
+\ProvidesClass{uwthesis}[2020/02/24]
 \NeedsTeXFormat{LaTeX2e}
  
 %
@@ -479,6 +480,7 @@
 % ------ Special captions ---------------------
 %
 % \caption[]{text} produces normal caption and numbering
+% \caption()[]{text} normal caption - no toc entry
 % \caption(-){(continued)} produces `(continued)' caption and 
 %        same-as-last caption number
 % \caption(x)[]{text} produces lettered caption.  1.1a, 1.1b, ...
@@ -494,6 +496,7 @@
 \def\@specialcaption(#1){%
   \def\thecaptionletter{#1}%
   \captiontotocfalse
+  \ifx&#1&\refstepcounter\@captype\fi
   \if#1-\def\thecaptionletter{}\fi
   \if#1a\refstepcounter\@captype\captiontotoctrue\fi
   \if#1A\refstepcounter\@captype\captiontotoctrue\fi
