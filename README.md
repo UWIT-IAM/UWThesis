@@ -15,8 +15,7 @@ All files are distributed under the Apache 2.0 license.
 
 Jim Fox
 
-http://staff.washington.edu/fox/
-fox@uw.edu
+help@uw.edu
 
 
 
