@@ -660,15 +660,67 @@
   \global\@namedef{S:\expandafter\the\@Sign}{#1}
   \global\advance\@Sign by1}
 
- 
+
+% Options: by, by-sa, by-nd, by-nc, by-nc-sa, by-nc-nd
+\def\CreativeCommons#1{
+    \def\@CreativeCommonsFeatures{#1}
+    \ifthenelse{\equal{\@CreativeCommonsFeatures}{by}}{
+        \def\@CreativeCommonsURL{\url{https://creativecommons.org/licenses/by/4.0/}}
+        \def\@CreativeCommonsIcon{\includegraphics{assets/cc/by.pdf}}
+        \def\@CreativeCommonsText{\caption{This work is licensed under a Creative Commons Attribution 4.0 International License \@CreativeCommonsURL.} \label{creativecommons}}
+    }{}
+    \ifthenelse{\equal{\@CreativeCommonsFeatures}{by-sa}}{
+        \def\@CreativeCommonsURL{\url{https://creativecommons.org/licenses/by-sa/4.0/}}
+        \def\@CreativeCommonsIcon{\includegraphics{assets/cc/by-sa.pdf}}
+        \def\@CreativeCommonsText{\caption{This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License \@CreativeCommonsURL.} \label{creativecommons}}
+    }{}
+    \ifthenelse{\equal{\@CreativeCommonsFeatures}{by-nd}}{
+        \def\@CreativeCommonsURL{\url{https://creativecommons.org/licenses/by-nd/4.0/}}
+        \def\@CreativeCommonsIcon{\includegraphics{assets/cc/by-nd.pdf}}
+        \def\@CreativeCommonsText{\caption{This work is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License \@CreativeCommonsURL.} \label{creativecommons}}
+    }{}
+    \ifthenelse{\equal{\@CreativeCommonsFeatures}{by-nc}}{
+        \def\@CreativeCommonsURL{\url{https://creativecommons.org/licenses/by-nc/4.0/}}
+        \def\@CreativeCommonsIcon{\includegraphics{assets/cc/by-nc.pdf}}
+        \def\@CreativeCommonsText{\caption{This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License \@CreativeCommonsURL.} \label{creativecommons}}
+    }{}
+    \ifthenelse{\equal{\@CreativeCommonsFeatures}{by-nc-sa}}{
+        \def\@CreativeCommonsURL{\url{https://creativecommons.org/licenses/by-nc-sa/4.0/}}
+        \def\@CreativeCommonsIcon{\includegraphics{assets/cc/by-nc-sa.pdf}}
+        \def\@CreativeCommonsText{\caption{This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License \@CreativeCommonsURL.} \label{creativecommons}}
+    }{}
+    \ifthenelse{\equal{\@CreativeCommonsFeatures}{by-nc-nd}}{
+        \def\@CreativeCommonsURL{\url{https://creativecommons.org/licenses/by-nc-nd/4.0/}}
+        \def\@CreativeCommonsIcon{\includegraphics{assets/cc/by-nc-nd.pdf}}
+        \def\@CreativeCommonsText{\caption{This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License \@CreativeCommonsURL.} \label{creativecommons}}
+    }{}
+    \ifthenelse{\isundefined{#1}}{}{
+        \gdef\@CreativeCommons{
+            \centering
+            \begin{minipage}[b]{0.9\textwidth}
+                \begin{minipage}[b]{0.3\textwidth}
+                    \@CreativeCommonsIcon
+                \end{minipage}\hfill
+                \begin{minipage}[b]{0.7\textwidth}
+                    \@CreativeCommonsText
+                \end{minipage}
+            \end{minipage}
+        }
+    }
+}
+
+
 \def\copyrightpage{                   % Prints the copyright page
+    \cleardoublepage
     \vspace{7pc}
     \begin{center}
       \par\vskip\z@ plus4fill\relax
       \copyright Copyright \@Year
-      \par
+      \par\vskip\z@ plus1fill\relax
       \@Author
-      \par\vskip\z@ plus2fill\relax
+      \par\vskip\z@ plus4fill\relax
+      \@CreativeCommons
+      \par\vskip\z@ plus24fill\relax
     \end{center}
   \let\copyrightpage\relax\relax}
  
