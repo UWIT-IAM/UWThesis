@@ -20,7 +20,7 @@
 % fox@washington.edu
 %
 %    For the most recent edition of this class file see:
-%         http://staff.washington.edu/fox/tex/
+%         https://staff.washington.edu/fox/tex/
 %    or
 %         https://github.com/UWIT-IAM/UWThesis.git
 %
