@@ -662,6 +662,7 @@
 
  
 \def\copyrightpage{                   % Prints the copyright page
+    \cleardoublepage
     \vspace{7pc}
     \begin{center}
       \par\vskip\z@ plus4fill\relax
