@@ -682,8 +682,7 @@
       \par\vskip\z@ plus4fill\relax
       \@Author
       \par\vskip\z@ plus4fill\relax
-      {\uwsinglespace
-      \@Degreetext\par}
+      \@Degreetext
       \par\vskip\z@ plus2fill\relax
       \@Degree
       \par\vskip\z@ plus2fill\relax
@@ -706,8 +705,9 @@
         \advance\count1 by1}
 
       \par\vskip\z@ plus4fill\relax
-       {\uwsinglespace
-      \@Programtext \par \@Program\par}
+      \@Programtext
+      \par\vskip\z@ plus1fill\relax
+      \@Program\par
       \par\vskip\z@ plus1fill\relax
     \end{center}
      \vspace{2pc}\relax
