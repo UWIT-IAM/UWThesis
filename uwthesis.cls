@@ -129,8 +129,19 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 
 \PassOptionsToClass{\@f@ntsize}{book}
-\PassOptionsToClass{openany}{book}
+
+\newif\if@openrightselected % true if openright is selected
+  \@openrightselectedfalse
+\DeclareOption{openright}{\@openrightselectedtrue}
+
 \ProcessOptions
+
+\if@openrightselected % default to openany
+  \PassOptionsToClass{openright}{book}
+\else
+  \PassOptionsToClass{openany}{book}
+\fi
+
 \LoadClass{book}
 
 \ifproquest
